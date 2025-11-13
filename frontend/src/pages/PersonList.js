@@ -59,10 +59,12 @@ function PersonList() {
         wsRef.current.close();
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     loadPersons();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page, sortBy]);
 
   const loadPersons = async () => {
