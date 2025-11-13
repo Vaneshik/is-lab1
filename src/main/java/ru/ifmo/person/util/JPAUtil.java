@@ -1,4 +1,4 @@
-package se.ifmo.ru.person.util;
+package ru.ifmo.person.util;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.inject.Disposes;

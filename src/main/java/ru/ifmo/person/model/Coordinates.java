@@ -1,4 +1,4 @@
-package se.ifmo.ru.person.model;
+package ru.ifmo.person.model;
 
 import jakarta.persistence.Embeddable;
 import jakarta.validation.constraints.Max;

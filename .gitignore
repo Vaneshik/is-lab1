@@ -91,3 +91,4 @@ yarn-error.log*
 *.tmp
 persistence.xml.backup
 
+frontend/.env.production

@@ -19,7 +19,7 @@
 
     <filter>
         <filter-name>CorsFilter</filter-name>
-        <filter-class>com.example.person.rest.CorsFilter</filter-class>
+        <filter-class>ru.ifmo.person.controller.CorsFilter</filter-class>
     </filter>
 
     <filter-mapping>

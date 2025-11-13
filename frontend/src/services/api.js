@@ -29,18 +29,18 @@ export const locationApi = {
 
 export const operationsApi = {
   deleteByNationality: (nationality) => 
-    axios.delete(`${API_BASE}/operations/delete-by-nationality?nationality=${nationality}`),
+    axios.delete(`${API_BASE}/persons/by-nationality?nationality=${nationality}`),
   
   getAverageHeight: () => 
-    axios.get(`${API_BASE}/operations/average-height`),
+    axios.get(`${API_BASE}/persons/statistics/average-height`),
   
   getUniqueNationalities: () => 
-    axios.get(`${API_BASE}/operations/unique-nationalities`),
+    axios.get(`${API_BASE}/persons/nationalities`),
   
   getHairColorPercentage: (color) => 
-    axios.get(`${API_BASE}/operations/hair-color-percentage?color=${color}`),
+    axios.get(`${API_BASE}/persons/statistics/hair-color-percentage?color=${color}`),
   
   countByLocation: (color, locationId) => 
-    axios.get(`${API_BASE}/operations/count-by-location?color=${color}&locationId=${locationId || ''}`)
+    axios.get(`${API_BASE}/persons/count?hairColor=${color}&locationId=${locationId || ''}`)
 };
 

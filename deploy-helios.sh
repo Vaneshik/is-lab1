@@ -69,12 +69,8 @@ cp ~/webapps/person-management-system.war ~/wildfly-26.1.3/standalone/deployment
 cd ~/wildfly-26.1.3
 unset _JAVA_OPTIONS
 
-JAVA_OPTS="-Xms256m -Xmx512m -XX:MetaspaceSize=256m -XX:MaxMetaspaceSize=512m --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED" \
-./bin/standalone.sh \
-  -b 0.0.0.0 \
-  -bmanagement=0.0.0.0 \
-  -Dorg.wildfly.io.worker.task-max-threads=8 \
-  -Dorg.wildfly.io.worker.io-threads=2 > ~/wildfly.log 2>&1 &
+JAVA_OPTS="-Xms512m -Xmx1024m -XX:MetaspaceSize=384m -XX:MaxMetaspaceSize=768m --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED" \
+./bin/standalone.sh -b 0.0.0.0 -bmanagement=0.0.0.0 > ~/wildfly.log 2>&1 &
 
 echo "WildFly запущен (PID: $!)"
 echo "Ожидание запуска (40 сек)..."

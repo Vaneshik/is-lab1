@@ -1,4 +1,4 @@
-package se.ifmo.ru.person.rest;
+package ru.ifmo.person.controller;
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;

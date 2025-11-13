@@ -1,10 +1,10 @@
-package se.ifmo.ru.person.service;
+package ru.ifmo.person.service;
 
-import se.ifmo.ru.person.model.Color;
-import se.ifmo.ru.person.model.Country;
-import se.ifmo.ru.person.model.Person;
-import se.ifmo.ru.person.repository.PersonRepository;
-import se.ifmo.ru.person.websocket.PersonWebSocket;
+import ru.ifmo.person.enumeration.Color;
+import ru.ifmo.person.enumeration.Country;
+import ru.ifmo.person.model.Person;
+import ru.ifmo.person.repository.PersonRepository;
+import ru.ifmo.person.websocket.PersonWebSocket;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 

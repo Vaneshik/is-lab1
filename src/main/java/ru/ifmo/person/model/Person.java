@@ -1,5 +1,7 @@
-package se.ifmo.ru.person.model;
+package ru.ifmo.person.model;
 
+import ru.ifmo.person.enumeration.Color;
+import ru.ifmo.person.enumeration.Country;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.DecimalMin;

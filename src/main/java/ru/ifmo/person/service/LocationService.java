@@ -1,7 +1,7 @@
-package se.ifmo.ru.person.service;
+package ru.ifmo.person.service;
 
-import se.ifmo.ru.person.model.Location;
-import se.ifmo.ru.person.repository.LocationRepository;
+import ru.ifmo.person.model.Location;
+import ru.ifmo.person.repository.LocationRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 

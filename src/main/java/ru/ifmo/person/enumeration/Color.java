@@ -1,4 +1,4 @@
-package se.ifmo.ru.person.model;
+package ru.ifmo.person.enumeration;
 
 public enum Color {
     GREEN,

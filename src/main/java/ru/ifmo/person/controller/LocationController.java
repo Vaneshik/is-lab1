@@ -1,7 +1,7 @@
-package se.ifmo.ru.person.rest;
+package ru.ifmo.person.controller;
 
-import se.ifmo.ru.person.model.Location;
-import se.ifmo.ru.person.service.LocationService;
+import ru.ifmo.person.model.Location;
+import ru.ifmo.person.service.LocationService;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
@@ -12,7 +12,7 @@ import java.util.Map;
 @Path("/locations")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class LocationResource {
+public class LocationController {
 
     @Inject
     private LocationService locationService;

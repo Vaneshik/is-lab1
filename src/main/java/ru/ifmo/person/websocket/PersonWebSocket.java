@@ -1,4 +1,4 @@
-package se.ifmo.ru.person.websocket;
+package ru.ifmo.person.websocket;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.websocket.*;
