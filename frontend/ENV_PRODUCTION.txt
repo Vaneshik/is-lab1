@@ -1,0 +1,6 @@
+# Создайте файл .env.production с этим содержимым для production сборки
+
+REACT_APP_BACKEND_HOST=se.ifmo.ru
+REACT_APP_BACKEND_PORT=8080
+REACT_APP_BACKEND_PATH=/person-management-system/api
+
