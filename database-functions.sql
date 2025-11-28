@@ -1,6 +1,3 @@
--- SQL функции для специальных операций
-
--- 1. Функция для удаления всех объектов по национальности
 CREATE OR REPLACE FUNCTION delete_persons_by_nationality(p_nationality VARCHAR)
 RETURNS INTEGER AS $$
 DECLARE
@@ -12,11 +9,6 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- Пример использования:
--- SELECT delete_persons_by_nationality('GERMANY');
-
-
--- 2. Функция для расчета среднего значения роста
 CREATE OR REPLACE FUNCTION get_average_height()
 RETURNS NUMERIC AS $$
 DECLARE
@@ -30,11 +22,6 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- Пример использования:
--- SELECT get_average_height();
-
-
--- 3. Функция для получения уникальных значений национальности
 CREATE OR REPLACE FUNCTION get_unique_nationalities()
 RETURNS TABLE(nationality VARCHAR) AS $$
 BEGIN
@@ -46,11 +33,6 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- Пример использования:
--- SELECT * FROM get_unique_nationalities();
-
-
--- 4. Функция для расчета доли людей с заданным цветом волос (в процентах)
 CREATE OR REPLACE FUNCTION get_hair_color_percentage(p_hair_color VARCHAR)
 RETURNS NUMERIC AS $$
 DECLARE
@@ -74,11 +56,6 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- Пример использования:
--- SELECT get_hair_color_percentage('BROWN');
-
-
--- 5. Функция для подсчета количества людей с заданным цветом волос в указанной локации
 CREATE OR REPLACE FUNCTION count_by_hair_color_and_location(
     p_hair_color VARCHAR,
     p_location_id INTEGER
@@ -88,13 +65,11 @@ DECLARE
     person_count INTEGER;
 BEGIN
     IF p_location_id IS NULL THEN
-        -- Если локация не указана, считаем всех с таким цветом волос без локации
         SELECT COUNT(*) INTO person_count
         FROM persons
         WHERE haircolor = p_hair_color
         AND location_id IS NULL;
     ELSE
-        -- Считаем людей с указанным цветом волос в конкретной локации
         SELECT COUNT(*) INTO person_count
         FROM persons
         WHERE haircolor = p_hair_color
@@ -105,12 +80,6 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- Пример использования:
--- SELECT count_by_hair_color_and_location('BLACK', 1);
--- SELECT count_by_hair_color_and_location('BLACK', NULL);
-
-
--- Дополнительная функция для получения всех данных о Person с дополнительной информацией
 CREATE OR REPLACE FUNCTION get_person_with_details(p_person_id INTEGER)
 RETURNS TABLE(
     person_id INTEGER,
@@ -150,7 +119,3 @@ BEGIN
     WHERE p.id = p_person_id;
 END;
 $$ LANGUAGE plpgsql;
-
--- Пример использования:
--- SELECT * FROM get_person_with_details(1);
-

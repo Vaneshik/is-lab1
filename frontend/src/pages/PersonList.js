@@ -66,12 +66,10 @@ function PersonList() {
         wsRef.current.close();
       }
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     loadPersons();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page, sortBy]);
 
   const handleDelete = async (id) => {
@@ -145,7 +143,6 @@ function PersonList() {
           marginBottom: '1rem'
         }}>{error}</div>}
 
-        {/* Фильтры */}
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
@@ -220,7 +217,6 @@ function PersonList() {
           }}>Сбросить</button>
         </div>
 
-        {/* Карточки (для всех экранов) */}
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
@@ -305,7 +301,6 @@ function PersonList() {
           ))}
         </div>
 
-        {/* Пагинация */}
         <div style={{
           display: 'flex',
           justifyContent: 'space-between',

@@ -26,11 +26,6 @@ VALUES
 SELECT COUNT(*) as total_persons FROM persons;
 SELECT COUNT(*) as total_locations FROM locations;
 
-SELECT * FROM get_average_height();
-SELECT * FROM get_unique_nationalities();
-SELECT * FROM get_hair_color_percentage('BROWN');
-SELECT * FROM count_by_hair_color_and_location('BLACK', 1);
-
 SELECT 
     nationality,
     COUNT(*) as count,

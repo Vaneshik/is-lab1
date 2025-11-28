@@ -24,7 +24,6 @@ function PersonForm() {
     if (id) {
       loadPerson();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   const loadLocations = async () => {

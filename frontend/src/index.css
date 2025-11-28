@@ -28,7 +28,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Аниме фон с звездами (статичный) */
 body::before {
   content: '';
   position: fixed;
@@ -43,7 +42,6 @@ body::before {
   z-index: -2;
 }
 
-/* Звездочки на фоне (статичные) */
 body::after {
   content: '';
   position: fixed;
@@ -65,7 +63,6 @@ body::after {
   z-index: -1;
 }
 
-/* Карточки */
 .card {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -74,7 +71,6 @@ body::after {
   box-shadow: var(--shadow);
 }
 
-/* Кнопки */
 button {
   background: var(--gradient-pink);
   color: white;
@@ -86,7 +82,6 @@ button {
   box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
 }
 
-/* Инпуты */
 input, select, textarea {
   background: rgba(255, 255, 255, 0.05);
   border: 2px solid rgba(255, 255, 255, 0.1);
@@ -103,7 +98,6 @@ input:focus, select:focus, textarea:focus {
   background: rgba(255, 255, 255, 0.08);
 }
 
-/* Заголовки */
 h1, h2, h3 {
   background: var(--gradient-pink);
   -webkit-background-clip: text;
@@ -114,7 +108,6 @@ h1, h2, h3 {
   text-shadow: 0 0 30px rgba(255, 105, 180, 0.5);
 }
 
-/* Таблица */
 table {
   width: 100%;
   border-collapse: separate;
@@ -140,7 +133,6 @@ tr:hover td {
   background: rgba(255, 105, 180, 0.1);
 }
 
-/* Навигация */
 nav {
   background: rgba(26, 26, 46, 0.95);
   padding: 1rem 2rem;
@@ -162,20 +154,17 @@ nav a:hover {
   color: var(--primary);
 }
 
-/* Пагинация */
 .pagination button {
   margin: 0 0.25rem;
   padding: 0.5rem 1rem;
   min-width: 45px;
 }
 
-/* Kawaii сердечки */
 .heart {
   display: inline-block;
   color: var(--primary);
 }
 
-/* Мобильная адаптация */
 @media (max-width: 768px) {
   body {
     font-size: 14px;
@@ -234,13 +223,11 @@ nav a:hover {
   }
 }
 
-/* Специальные эффекты */
 .sparkle {
   position: relative;
   display: inline-block;
 }
 
-/* Kawaii alert */
 .alert {
   background: rgba(255, 105, 180, 0.2);
   border: 2px solid var(--primary);
@@ -249,7 +236,6 @@ nav a:hover {
   margin: 1rem 0;
 }
 
-/* Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
 }

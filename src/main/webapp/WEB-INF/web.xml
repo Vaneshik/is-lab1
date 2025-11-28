@@ -11,8 +11,6 @@
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
 
-    <!-- Weld listener не нужен для Wildfly - он предоставляет CDI из коробки -->
-
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>

@@ -147,7 +147,6 @@ function Operations() {
           </div>
         )}
 
-        {/* Сетка карточек операций */}
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',

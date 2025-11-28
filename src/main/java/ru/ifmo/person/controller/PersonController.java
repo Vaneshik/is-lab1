@@ -98,8 +98,6 @@ public class PersonController {
         }
     }
 
-    // Special operations
-
     @DELETE
     @Path("/by-nationality")
     public Response deleteByNationality(@QueryParam("nationality") String nationality) {

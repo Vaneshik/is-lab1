@@ -38,9 +38,6 @@ public class PersonWebSocket {
         System.out.println("Received message: " + message);
     }
 
-    /**
-     * Отправить уведомление всем подключенным клиентам
-     */
     public static void notifyClients(String action, Integer personId) {
         synchronized (sessions) {
             for (Session session : sessions) {

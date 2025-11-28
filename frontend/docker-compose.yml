@@ -6,9 +6,8 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: person-management-frontend
-    network_mode: host  # Используем сеть хоста для доступа к localhost:31337 (SSH туннель)
+    network_mode: host
     environment:
-      # Backend URL (helios сервер)
       - REACT_APP_BACKEND_HOST=se.ifmo.ru
       - REACT_APP_BACKEND_PORT=31337
       - REACT_APP_BACKEND_PATH=/person-management-system/api

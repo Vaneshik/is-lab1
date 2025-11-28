@@ -12,19 +12,16 @@
         <class>com.example.person.model.Location</class>
         
         <properties>
-            <!-- Database connection settings -->
             <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://pg:5432/studs"/>
             <property name="jakarta.persistence.jdbc.user" value="YOUR_USERNAME"/>
             <property name="jakarta.persistence.jdbc.password" value="YOUR_PASSWORD"/>
             
-            <!-- Hibernate settings -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
             
-            <!-- Connection pool settings -->
             <property name="hibernate.c3p0.min_size" value="5"/>
             <property name="hibernate.c3p0.max_size" value="20"/>
             <property name="hibernate.c3p0.timeout" value="300"/>

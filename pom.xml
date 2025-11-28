@@ -22,7 +22,6 @@
     </properties>
 
     <dependencies>
-        <!-- Jakarta EE API -->
         <dependency>
             <groupId>jakarta.platform</groupId>
             <artifactId>jakarta.jakartaee-api</artifactId>
@@ -30,7 +29,6 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- JAX-RS (REST API) -->
         <dependency>
             <groupId>jakarta.ws.rs</groupId>
             <artifactId>jakarta.ws.rs-api</artifactId>
@@ -38,7 +36,6 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- Jersey (JAX-RS implementation) - Wildfly использует RESTEasy -->
         <dependency>
             <groupId>org.glassfish.jersey.containers</groupId>
             <artifactId>jersey-container-servlet</artifactId>
@@ -60,7 +57,6 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- Hibernate Core - Wildfly предоставляет, но оставим для локальной разработки -->
         <dependency>
             <groupId>org.hibernate.orm</groupId>
             <artifactId>hibernate-core</artifactId>
@@ -68,7 +64,6 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- Hibernate Validator -->
         <dependency>
             <groupId>org.hibernate.validator</groupId>
             <artifactId>hibernate-validator</artifactId>
@@ -76,14 +71,12 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- PostgreSQL Driver -->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>42.6.0</version>
         </dependency>
 
-        <!-- Jackson for JSON -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
@@ -96,14 +89,6 @@
             <version>2.15.2</version>
         </dependency>
 
-        <!-- Weld (CDI implementation) - предоставляется Wildfly -->
-        <!-- <dependency>
-            <groupId>org.jboss.weld.servlet</groupId>
-            <artifactId>weld-servlet-core</artifactId>
-            <version>5.1.2.Final</version>
-        </dependency> -->
-
-        <!-- WebSocket API (included in Jakarta EE API, but explicit for clarity) -->
         <dependency>
             <groupId>jakarta.websocket</groupId>
             <artifactId>jakarta.websocket-api</artifactId>
@@ -111,7 +96,6 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- WebSocket Client API -->
         <dependency>
             <groupId>jakarta.websocket</groupId>
             <artifactId>jakarta.websocket-client-api</artifactId>
