@@ -93,8 +93,9 @@ function PersonForm() {
               type="number" 
               required
               max="454"
+              step="0.01"
               value={person.coordinates.x} 
-              onChange={(e) => handleChange('coordinates.x', parseInt(e.target.value))}
+              onChange={(e) => handleChange('coordinates.x', parseFloat(e.target.value))}
             />
           </div>
 
@@ -157,10 +158,9 @@ function PersonForm() {
             <label>Вес (кг)</label>
             <input 
               type="number" 
-              step="0.1"
-              min="0.1"
+              min="1"
               value={person.weight} 
-              onChange={(e) => handleChange('weight', e.target.value ? parseFloat(e.target.value) : '')}
+              onChange={(e) => handleChange('weight', e.target.value ? parseInt(e.target.value) : '')}
             />
           </div>
         </div>

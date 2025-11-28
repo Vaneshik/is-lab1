@@ -2,42 +2,88 @@ package ru.ifmo.person.repository;
 
 import ru.ifmo.person.model.Location;
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
-import jakarta.transaction.Transactional;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
 
 import java.util.List;
 
 @ApplicationScoped
 public class LocationRepository {
 
-    @PersistenceContext
-    private EntityManager em;
+    @Inject
+    private EntityManagerFactory emf;
+    
+    private EntityManager getEntityManager() {
+        return emf.createEntityManager();
+    }
 
     public List<Location> findAll() {
-        return em.createQuery("SELECT l FROM Location l ORDER BY l.id", Location.class)
-                .getResultList();
+        EntityManager em = getEntityManager();
+        try {
+            return em.createQuery("SELECT l FROM Location l ORDER BY l.id", Location.class)
+                    .getResultList();
+        } finally {
+            em.close();
+        }
     }
 
     public Location findById(Integer id) {
-        return em.find(Location.class, id);
+        EntityManager em = getEntityManager();
+        try {
+            return em.find(Location.class, id);
+        } finally {
+            em.close();
+        }
     }
 
-    @Transactional
     public void save(Location location) {
-        em.persist(location);
+        EntityManager em = getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin();
+            em.persist(location);
+            tx.commit();
+        } catch (Exception e) {
+            if (tx.isActive()) tx.rollback();
+            throw e;
+        } finally {
+            em.close();
+        }
     }
 
-    @Transactional
     public Location update(Location location) {
-        return em.merge(location);
+        EntityManager em = getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin();
+            Location updated = em.merge(location);
+            tx.commit();
+            return updated;
+        } catch (Exception e) {
+            if (tx.isActive()) tx.rollback();
+            throw e;
+        } finally {
+            em.close();
+        }
     }
 
-    @Transactional
     public void delete(Integer id) {
-        Location location = em.find(Location.class, id);
-        if (location != null) {
-            em.remove(location);
+        EntityManager em = getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin();
+            Location location = em.find(Location.class, id);
+            if (location != null) {
+                em.remove(location);
+            }
+            tx.commit();
+        } catch (Exception e) {
+            if (tx.isActive()) tx.rollback();
+            throw e;
+        } finally {
+            em.close();
         }
     }
 }

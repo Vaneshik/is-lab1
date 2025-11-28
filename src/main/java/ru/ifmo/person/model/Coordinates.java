@@ -8,33 +8,32 @@ import jakarta.validation.constraints.NotNull;
 public class Coordinates {
 
     @Max(value = 454, message = "X coordinate must be <= 454")
-    private int x;
+    private double x;
 
-    @NotNull(message = "Y coordinate cannot be null")
     @Max(value = 698, message = "Y coordinate must be <= 698")
-    private Long y;
+    private int y;
 
     public Coordinates() {
     }
 
-    public Coordinates(int x, Long y) {
+    public Coordinates(double x, int y) {
         this.x = x;
         this.y = y;
     }
 
-    public int getX() {
+    public double getX() {
         return x;
     }
 
-    public void setX(int x) {
+    public void setX(double x) {
         this.x = x;
     }
 
-    public Long getY() {
+    public int getY() {
         return y;
     }
 
-    public void setY(Long y) {
+    public void setY(int y) {
         this.y = y;
     }
 

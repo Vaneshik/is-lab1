@@ -1,30 +1,30 @@
 package ru.ifmo.person.dto;
 
 public class CoordinatesDto {
-    private Integer x;
-    private Long y;
+    private Double x;
+    private Integer y;
 
     public CoordinatesDto() {
     }
 
-    public CoordinatesDto(Integer x, Long y) {
+    public CoordinatesDto(Double x, Integer y) {
         this.x = x;
         this.y = y;
     }
 
-    public Integer getX() {
+    public Double getX() {
         return x;
     }
 
-    public void setX(Integer x) {
+    public void setX(Double x) {
         this.x = x;
     }
 
-    public Long getY() {
+    public Integer getY() {
         return y;
     }
 
-    public void setY(Long y) {
+    public void setY(Integer y) {
         this.y = y;
     }
 }

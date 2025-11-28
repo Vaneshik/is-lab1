@@ -2,9 +2,9 @@ package ru.ifmo.person.dto;
 
 public class LocationDto {
     private Integer id;
-    private Long x;
-    private long y;
-    private Long z;
+    private Integer x;
+    private Float y;
+    private Integer z;
     private String name;
 
     public LocationDto() {
@@ -18,27 +18,27 @@ public class LocationDto {
         this.id = id;
     }
 
-    public Long getX() {
+    public Integer getX() {
         return x;
     }
 
-    public void setX(Long x) {
+    public void setX(Integer x) {
         this.x = x;
     }
 
-    public long getY() {
+    public Float getY() {
         return y;
     }
 
-    public void setY(long y) {
+    public void setY(Float y) {
         this.y = y;
     }
 
-    public Long getZ() {
+    public Integer getZ() {
         return z;
     }
 
-    public void setZ(Long z) {
+    public void setZ(Integer z) {
         this.z = z;
     }
 

@@ -12,16 +12,14 @@ public class Location {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotNull(message = "Location X coordinate cannot be null")
     @Column(nullable = false)
-    private Long x;
+    private int x;
 
     @Column(nullable = false)
-    private long y;
+    private float y;
 
-    @NotNull(message = "Location Z coordinate cannot be null")
     @Column(nullable = false)
-    private Long z;
+    private int z;
 
     @Size(max = 953, message = "Location name must be <= 953 characters")
     private String name;
@@ -29,7 +27,7 @@ public class Location {
     public Location() {
     }
 
-    public Location(Long x, long y, Long z, String name) {
+    public Location(int x, float y, int z, String name) {
         this.x = x;
         this.y = y;
         this.z = z;
@@ -44,27 +42,27 @@ public class Location {
         this.id = id;
     }
 
-    public Long getX() {
+    public int getX() {
         return x;
     }
 
-    public void setX(Long x) {
+    public void setX(int x) {
         this.x = x;
     }
 
-    public long getY() {
+    public float getY() {
         return y;
     }
 
-    public void setY(long y) {
+    public void setY(float y) {
         this.y = y;
     }
 
-    public Long getZ() {
+    public int getZ() {
         return z;
     }
 
-    public void setZ(Long z) {
+    public void setZ(int z) {
         this.z = z;
     }
 

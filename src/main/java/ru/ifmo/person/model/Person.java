@@ -17,7 +17,7 @@ public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, unique = true)
-    private Integer id;
+    private long id;
 
     @NotBlank(message = "Name cannot be empty")
     @Column(nullable = false)
@@ -46,10 +46,10 @@ public class Person {
     private Location location;
 
     @Min(value = 1, message = "Height must be > 0")
-    private Integer height;
+    private Long height;
 
-    @DecimalMin(value = "0.0", inclusive = false, message = "Weight must be > 0")
-    private Double weight;
+    @Min(value = 1, message = "Weight must be > 0")
+    private Integer weight;
 
     private String passportID;
 
@@ -63,11 +63,11 @@ public class Person {
 
     public Person() {
     }
-    public Integer getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -119,19 +119,19 @@ public class Person {
         this.location = location;
     }
 
-    public Integer getHeight() {
+    public Long getHeight() {
         return height;
     }
 
-    public void setHeight(Integer height) {
+    public void setHeight(Long height) {
         this.height = height;
     }
 
-    public Double getWeight() {
+    public Integer getWeight() {
         return weight;
     }
 
-    public void setWeight(Double weight) {
+    public void setWeight(Integer weight) {
         this.weight = weight;
     }
 

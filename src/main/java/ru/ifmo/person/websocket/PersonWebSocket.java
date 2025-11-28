@@ -38,14 +38,14 @@ public class PersonWebSocket {
         System.out.println("Received message: " + message);
     }
 
-    public static void notifyClients(String action, Integer personId) {
+    public static void notifyClients(String action, Long personId) {
         synchronized (sessions) {
             for (Session session : sessions) {
                 if (session.isOpen()) {
                     try {
                         Map<String, Object> notification = Map.of(
                                 "action", action,
-                                "personId", personId != null ? personId : -1,
+                                "personId", personId != null ? personId : -1L,
                                 "timestamp", System.currentTimeMillis()
                         );
                         String json = objectMapper.writeValueAsString(notification);

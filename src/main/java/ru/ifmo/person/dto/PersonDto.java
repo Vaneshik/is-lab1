@@ -5,26 +5,26 @@ import ru.ifmo.person.enumeration.Country;
 import java.util.Date;
 
 public class PersonDto {
-    private Integer id;
+    private Long id;
     private String name;
     private CoordinatesDto coordinates;
     private Date creationDate;
     private Color eyeColor;
     private Color hairColor;
     private LocationDto location;
-    private Integer height;
-    private Double weight;
+    private Long height;
+    private Integer weight;
     private String passportID;
     private Country nationality;
 
     public PersonDto() {
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -76,19 +76,19 @@ public class PersonDto {
         this.location = location;
     }
 
-    public Integer getHeight() {
+    public Long getHeight() {
         return height;
     }
 
-    public void setHeight(Integer height) {
+    public void setHeight(Long height) {
         this.height = height;
     }
 
-    public Double getWeight() {
+    public Integer getWeight() {
         return weight;
     }
 
-    public void setWeight(Double weight) {
+    public void setWeight(Integer weight) {
         this.weight = weight;
     }
 

@@ -39,7 +39,7 @@ public class PersonService {
         return personRepository.count();
     }
 
-    public PersonDto getPersonById(Integer id) {
+    public PersonDto getPersonById(Long id) {
         Person person = personRepository.findById(id);
         return personMapper.toDto(person);
     }
@@ -70,7 +70,7 @@ public class PersonService {
         return personMapper.toDto(updated);
     }
 
-    public void deletePerson(Integer id) {
+    public void deletePerson(Long id) {
         personRepository.delete(id);
         PersonWebSocket.notifyClients("deleted", id);
     }

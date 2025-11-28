@@ -53,7 +53,7 @@ public class PersonController {
 
     @GET
     @Path("/{id}")
-    public Response getById(@PathParam("id") Integer id) {
+    public Response getById(@PathParam("id") Long id) {
         PersonDto person = personService.getPersonById(id);
         if (person == null) {
             return Response.status(Response.Status.NOT_FOUND)
@@ -75,7 +75,7 @@ public class PersonController {
 
     @PUT
     @Path("/{id}")
-    public Response update(@PathParam("id") Integer id, PersonDto person) {
+    public Response update(@PathParam("id") Long id, PersonDto person) {
         try {
             person.setId(id);
             PersonDto updated = personService.updatePerson(person);
@@ -88,7 +88,7 @@ public class PersonController {
 
     @DELETE
     @Path("/{id}")
-    public Response delete(@PathParam("id") Integer id) {
+    public Response delete(@PathParam("id") Long id) {
         try {
             personService.deletePerson(id);
             return Response.noContent().build();
