@@ -122,7 +122,7 @@ function PersonList() {
             fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
             margin: 0 
           }}>
-            Список людей 👧
+            Список персон
           </h2>
           <span style={{ 
             color: wsConnected ? '#4CAF50' : '#f44336',
@@ -272,26 +272,26 @@ function PersonList() {
                   <div>{person.creationDate ? new Date(person.creationDate).toLocaleDateString() : '-'}</div>
                 </div>
                 <div>
-                  <div style={{ color: '#888', fontSize: '0.75rem', marginBottom: '0.25rem' }}>Глаза 👀</div>
+                  <div style={{ color: '#888', fontSize: '0.75rem', marginBottom: '0.25rem' }}>Глаза</div>
                   <div>{person.eyeColor || '-'}</div>
                 </div>
                 <div>
-                  <div style={{ color: '#888', fontSize: '0.75rem', marginBottom: '0.25rem' }}>Волосы 💇</div>
+                  <div style={{ color: '#888', fontSize: '0.75rem', marginBottom: '0.25rem' }}>Волосы</div>
                   <div>{person.hairColor || '-'}</div>
                 </div>
                 <div>
-                  <div style={{ color: '#888', fontSize: '0.75rem', marginBottom: '0.25rem' }}>Рост 📏</div>
+                  <div style={{ color: '#888', fontSize: '0.75rem', marginBottom: '0.25rem' }}>Рост</div>
                   <div>{person.height || '-'}</div>
                 </div>
                 <div>
-                  <div style={{ color: '#888', fontSize: '0.75rem', marginBottom: '0.25rem' }}>Вес ⚖️</div>
+                  <div style={{ color: '#888', fontSize: '0.75rem', marginBottom: '0.25rem' }}>Вес</div>
                   <div>{person.weight || '-'}</div>
                 </div>
               </div>
 
               <div style={{ display: 'flex', gap: '0.5rem' }}>
                 <Link to={`/persons/${person.id}`} style={{ textDecoration: 'none', flex: 1 }}>
-                  <button style={{ width: '100%' }}>✏️ Изменить</button>
+                  <button style={{ width: '100%' }}>Изменить</button>
                 </Link>
                 <button 
                   onClick={() => handleDelete(person.id)}
@@ -299,7 +299,7 @@ function PersonList() {
                     flex: 1,
                     background: 'linear-gradient(135deg, #f5576c 0%, #f093fb 100%)'
                   }}
-                >🗑️ Удалить</button>
+                >Удалить</button>
               </div>
             </div>
           ))}

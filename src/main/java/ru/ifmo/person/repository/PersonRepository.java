@@ -89,7 +89,6 @@ public class PersonRepository {
 
     @Transactional
     public void deleteByNationality(Country nationality) {
-        // Простое удаление через JPQL вместо функции
         em.createQuery("DELETE FROM Person p WHERE p.nationality = :nationality")
                 .setParameter("nationality", nationality)
                 .executeUpdate();

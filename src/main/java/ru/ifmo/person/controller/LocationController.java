@@ -1,6 +1,6 @@
 package ru.ifmo.person.controller;
 
-import ru.ifmo.person.model.Location;
+import ru.ifmo.person.dto.LocationDto;
 import ru.ifmo.person.service.LocationService;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
@@ -25,7 +25,7 @@ public class LocationController {
     @GET
     @Path("/{id}")
     public Response getById(@PathParam("id") Integer id) {
-        Location location = locationService.getLocationById(id);
+        LocationDto location = locationService.getLocationById(id);
         if (location == null) {
             return Response.status(Response.Status.NOT_FOUND)
                     .entity(Map.of("error", "Location not found")).build();
@@ -34,10 +34,10 @@ public class LocationController {
     }
 
     @POST
-    public Response create(Location location) {
+    public Response create(LocationDto location) {
         try {
-            locationService.createLocation(location);
-            return Response.status(Response.Status.CREATED).entity(location).build();
+            LocationDto created = locationService.createLocation(location);
+            return Response.status(Response.Status.CREATED).entity(created).build();
         } catch (Exception e) {
             return Response.status(Response.Status.BAD_REQUEST)
                     .entity(Map.of("error", e.getMessage())).build();

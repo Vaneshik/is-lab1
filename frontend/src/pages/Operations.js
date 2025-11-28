@@ -118,7 +118,7 @@ function Operations() {
           fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
           marginBottom: '1.5rem'
         }}>
-          Специальные операции 🔧
+          Специальные операции
         </h2>
         
         {error && (
@@ -154,7 +154,6 @@ function Operations() {
           gap: '1.5rem'
         }}>
           
-          {/* Карточка 1 - Удалить по национальности */}
           <div className="card" style={{
             padding: '1.5rem',
             background: 'rgba(255, 255, 255, 0.03)',
@@ -169,7 +168,6 @@ function Operations() {
               paddingBottom: '0.75rem',
               borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
             }}>
-              <span style={{ fontSize: '1.75rem' }}>🗑️</span>
               <h3 style={{ margin: 0, fontSize: '1.15rem' }}>Удалить по национальности</h3>
             </div>
             <form onSubmit={handleDeleteByNationality}>
@@ -184,10 +182,10 @@ function Operations() {
                 </label>
                 <select name="nationality" style={{ width: '100%' }}>
                   <option value="">Выберите...</option>
-                  <option value="GERMANY">GERMANY 🇩🇪</option>
-                  <option value="FRANCE">FRANCE 🇫🇷</option>
-                  <option value="SPAIN">SPAIN 🇪🇸</option>
-                  <option value="VATICAN">VATICAN 🇻🇦</option>
+                  <option value="GERMANY">GERMANY</option>
+                  <option value="FRANCE">FRANCE</option>
+                  <option value="SPAIN">SPAIN</option>
+                  <option value="VATICAN">VATICAN</option>
                 </select>
               </div>
               <button 
@@ -202,7 +200,6 @@ function Operations() {
             </form>
           </div>
 
-          {/* Карточка 2 - Среднее значение роста */}
           <div className="card" style={{
             padding: '1.5rem',
             background: 'rgba(255, 255, 255, 0.03)',
@@ -217,7 +214,6 @@ function Operations() {
               paddingBottom: '0.75rem',
               borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
             }}>
-              <span style={{ fontSize: '1.75rem' }}>📏</span>
               <h3 style={{ margin: 0, fontSize: '1.15rem' }}>Среднее значение роста</h3>
             </div>
             <button 
@@ -251,7 +247,6 @@ function Operations() {
             )}
           </div>
 
-          {/* Карточка 3 - Уникальные национальности */}
           <div className="card" style={{
             padding: '1.5rem',
             background: 'rgba(255, 255, 255, 0.03)',
@@ -266,7 +261,6 @@ function Operations() {
               paddingBottom: '0.75rem',
               borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
             }}>
-              <span style={{ fontSize: '1.75rem' }}>🌍</span>
               <h3 style={{ margin: 0, fontSize: '1.15rem' }}>Уникальные национальности</h3>
             </div>
             <button 
@@ -314,7 +308,6 @@ function Operations() {
             )}
           </div>
 
-          {/* Карточка 4 - Доля людей с цветом волос */}
           <div className="card" style={{
             padding: '1.5rem',
             background: 'rgba(255, 255, 255, 0.03)',
@@ -329,7 +322,6 @@ function Operations() {
               paddingBottom: '0.75rem',
               borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
             }}>
-              <span style={{ fontSize: '1.75rem' }}>💇</span>
               <h3 style={{ margin: 0, fontSize: '1.15rem' }}>Доля по цвету волос</h3>
             </div>
             <form onSubmit={handleHairColorPercentage}>
@@ -344,11 +336,11 @@ function Operations() {
                 </label>
                 <select name="color" style={{ width: '100%' }}>
                   <option value="">Выберите...</option>
-                  <option value="GREEN">GREEN 💚</option>
-                  <option value="BLACK">BLACK 🖤</option>
-                  <option value="BLUE">BLUE 💙</option>
-                  <option value="WHITE">WHITE 🤍</option>
-                  <option value="BROWN">BROWN 🤎</option>
+                  <option value="GREEN">GREEN</option>
+                  <option value="BLACK">BLACK</option>
+                  <option value="BLUE">BLUE</option>
+                  <option value="WHITE">WHITE</option>
+                  <option value="BROWN">BROWN</option>
                 </select>
               </div>
               <button type="submit" style={{ width: '100%' }}>
@@ -381,7 +373,6 @@ function Operations() {
             )}
           </div>
 
-          {/* Карточка 5 - Количество по цвету волос и локации */}
           <div className="card" style={{
             padding: '1.5rem',
             background: 'rgba(255, 255, 255, 0.03)',
@@ -396,7 +387,6 @@ function Operations() {
               paddingBottom: '0.75rem',
               borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
             }}>
-              <span style={{ fontSize: '1.75rem' }}>📍</span>
               <h3 style={{ margin: 0, fontSize: '1.15rem' }}>По цвету и локации</h3>
             </div>
             <form onSubmit={handleCountByLocation}>
@@ -411,11 +401,11 @@ function Operations() {
                 </label>
                 <select name="color" style={{ width: '100%' }}>
                   <option value="">Выберите...</option>
-                  <option value="GREEN">GREEN 💚</option>
-                  <option value="BLACK">BLACK 🖤</option>
-                  <option value="BLUE">BLUE 💙</option>
-                  <option value="WHITE">WHITE 🤍</option>
-                  <option value="BROWN">BROWN 🤎</option>
+                  <option value="GREEN">GREEN</option>
+                  <option value="BLACK">BLACK</option>
+                  <option value="BLUE">BLUE</option>
+                  <option value="WHITE">WHITE</option>
+                  <option value="BROWN">BROWN</option>
                 </select>
               </div>
               <div className="form-group" style={{ marginBottom: '1rem' }}>
@@ -460,7 +450,7 @@ function Operations() {
                   fontWeight: 'bold',
                   color: '#ffc0cb'
                 }}>
-                  {results.count} 👤
+                  {results.count}
                 </div>
               </div>
             )}

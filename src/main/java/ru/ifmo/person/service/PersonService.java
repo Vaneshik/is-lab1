@@ -1,7 +1,9 @@
 package ru.ifmo.person.service;
 
+import ru.ifmo.person.dto.PersonDto;
 import ru.ifmo.person.enumeration.Color;
 import ru.ifmo.person.enumeration.Country;
+import ru.ifmo.person.mapper.PersonMapper;
 import ru.ifmo.person.model.Person;
 import ru.ifmo.person.repository.PersonRepository;
 import ru.ifmo.person.websocket.PersonWebSocket;
@@ -9,6 +11,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @ApplicationScoped
 public class PersonService {
@@ -16,53 +19,64 @@ public class PersonService {
     @Inject
     private PersonRepository personRepository;
 
-    public List<Person> getAllPersons() {
-        return personRepository.findAll();
+    @Inject
+    private PersonMapper personMapper;
+
+    public List<PersonDto> getAllPersons() {
+        return personRepository.findAll().stream()
+                .map(personMapper::toDto)
+                .collect(Collectors.toList());
     }
 
-    public List<Person> getPersonsPaginated(int page, int pageSize, String sortBy) {
+    public List<PersonDto> getPersonsPaginated(int page, int pageSize, String sortBy) {
         int offset = page * pageSize;
-        return personRepository.findAll(offset, pageSize, sortBy);
+        return personRepository.findAll(offset, pageSize, sortBy).stream()
+                .map(personMapper::toDto)
+                .collect(Collectors.toList());
     }
 
     public long getTotalCount() {
         return personRepository.count();
     }
 
-    public Person getPersonById(Integer id) {
-        return personRepository.findById(id);
+    public PersonDto getPersonById(Integer id) {
+        Person person = personRepository.findById(id);
+        return personMapper.toDto(person);
     }
 
-    public List<Person> getPersonsByName(String name) {
-        return personRepository.findByName(name);
+    public List<PersonDto> getPersonsByName(String name) {
+        return personRepository.findByName(name).stream()
+                .map(personMapper::toDto)
+                .collect(Collectors.toList());
     }
 
-    public List<Person> getPersonsByNationality(Country nationality) {
-        return personRepository.findByNationality(nationality);
+    public List<PersonDto> getPersonsByNationality(Country nationality) {
+        return personRepository.findByNationality(nationality).stream()
+                .map(personMapper::toDto)
+                .collect(Collectors.toList());
     }
 
-    public void createPerson(Person person) {
+    public PersonDto createPerson(PersonDto personDto) {
+        Person person = personMapper.toEntity(personDto);
         personRepository.save(person);
-        // Уведомить всех клиентов о создании
         PersonWebSocket.notifyClients("created", person.getId());
+        return personMapper.toDto(person);
     }
 
-    public void updatePerson(Person person) {
-        personRepository.update(person);
-        // Уведомить всех клиентов об обновлении
-        PersonWebSocket.notifyClients("updated", person.getId());
+    public PersonDto updatePerson(PersonDto personDto) {
+        Person person = personMapper.toEntity(personDto);
+        Person updated = personRepository.update(person);
+        PersonWebSocket.notifyClients("updated", updated.getId());
+        return personMapper.toDto(updated);
     }
 
     public void deletePerson(Integer id) {
         personRepository.delete(id);
-        // Уведомить всех клиентов об удалении
         PersonWebSocket.notifyClients("deleted", id);
     }
 
-    // Special operations
     public void deleteByNationality(Country nationality) {
         personRepository.deleteByNationality(nationality);
-        // Уведомить всех клиентов о массовом удалении
         PersonWebSocket.notifyClients("bulk_deleted", null);
     }
 

@@ -1,8 +1,8 @@
 package ru.ifmo.person.controller;
 
+import ru.ifmo.person.dto.PersonDto;
 import ru.ifmo.person.enumeration.Color;
 import ru.ifmo.person.enumeration.Country;
-import ru.ifmo.person.model.Person;
 import ru.ifmo.person.service.PersonService;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
@@ -28,7 +28,7 @@ public class PersonController {
                           @QueryParam("nationality") String nationality,
                           @QueryParam("sortBy") String sortBy) {
         try {
-            List<Person> persons;
+            List<PersonDto> persons;
             
             if (name != null && !name.isEmpty()) {
                 persons = personService.getPersonsByName(name);
@@ -54,7 +54,7 @@ public class PersonController {
     @GET
     @Path("/{id}")
     public Response getById(@PathParam("id") Integer id) {
-        Person person = personService.getPersonById(id);
+        PersonDto person = personService.getPersonById(id);
         if (person == null) {
             return Response.status(Response.Status.NOT_FOUND)
                     .entity(Map.of("error", "Person not found")).build();
@@ -63,10 +63,10 @@ public class PersonController {
     }
 
     @POST
-    public Response create(Person person) {
+    public Response create(PersonDto person) {
         try {
-            personService.createPerson(person);
-            return Response.status(Response.Status.CREATED).entity(person).build();
+            PersonDto created = personService.createPerson(person);
+            return Response.status(Response.Status.CREATED).entity(created).build();
         } catch (Exception e) {
             return Response.status(Response.Status.BAD_REQUEST)
                     .entity(Map.of("error", e.getMessage())).build();
@@ -75,11 +75,11 @@ public class PersonController {
 
     @PUT
     @Path("/{id}")
-    public Response update(@PathParam("id") Integer id, Person person) {
+    public Response update(@PathParam("id") Integer id, PersonDto person) {
         try {
             person.setId(id);
-            personService.updatePerson(person);
-            return Response.ok(person).build();
+            PersonDto updated = personService.updatePerson(person);
+            return Response.ok(updated).build();
         } catch (Exception e) {
             return Response.status(Response.Status.BAD_REQUEST)
                     .entity(Map.of("error", e.getMessage())).build();
