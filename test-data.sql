@@ -1,7 +1,3 @@
--- Test data for Person Management System
--- Insert this data after the application creates tables
-
--- Insert test locations
 INSERT INTO locations (x, y, z, name) VALUES 
     (100, 200, 300, 'Moscow'),
     (150, 250, 350, 'Saint Petersburg'),
@@ -9,7 +5,6 @@ INSERT INTO locations (x, y, z, name) VALUES
     (250, 350, 450, 'Paris'),
     (300, 400, 500, 'Madrid');
 
--- Insert test persons (assuming location IDs 1-5 were created above)
 INSERT INTO persons (name, x, y, creationdate, eyecolor, haircolor, location_id, height, weight, passportid, nationality) 
 VALUES 
     ('Ivan Petrov', 100, 200, NOW(), 'BLUE', 'BLACK', 1, 180, 75.5, 'RU1234567', 'GERMANY'),
@@ -28,17 +23,14 @@ VALUES
     ('Thomas Müller', 190, 290, NOW(), 'BLUE', 'WHITE', 3, 185, 88.0, 'DE3456789', 'GERMANY'),
     ('Isabella Romano', 270, 370, NOW(), 'GREEN', NULL, NULL, 166, 61.0, 'IT2345678', 'VATICAN');
 
--- Verify data
 SELECT COUNT(*) as total_persons FROM persons;
 SELECT COUNT(*) as total_locations FROM locations;
 
--- Test special operations
 SELECT * FROM get_average_height();
 SELECT * FROM get_unique_nationalities();
 SELECT * FROM get_hair_color_percentage('BROWN');
 SELECT * FROM count_by_hair_color_and_location('BLACK', 1);
 
--- Show summary
 SELECT 
     nationality,
     COUNT(*) as count,
